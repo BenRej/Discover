@@ -1,0 +1,47 @@
+extends base
+include _reviewcard
+
+block content
+    main.main
+        .user-view
+            include _navAccount
+            //- form.form__edit-review
+            //-     .form__edit__group
+            //-         .review__card__footer
+            //-             button.btn.btn--green.btn--small Edit Review
+            .user-view__content
+                .user-view__form-container
+                    h2.heading-secondary.ma-bt-md Edit Your Review
+                    
+                    .card
+                        .card__header
+                            .card__picture
+                                .card__picture-overlay &nbsp;
+                                a.review__card--btn-back(href=`/my-reviews`)
+                                    svg.review__card__icon
+                                        use(xlink:href='/img/icons.svg#icon-arrow-left')
+                                    p.review__card--btn-back-text Go back 
+                                img.card__picture-img(src=`/img/tours/${review.tour.imageCover}`, alt=`${review.tour.name}`)
+                            h3.heading-tertirary
+                                span= review.tour.name
+
+                        .review__content
+                            .review__avatar
+                                img.review__avatar-img(src=`/img/users/${review.user.photo}`, alt=`${review.user.name}`)
+                            p.review__user=review.user.name
+                         
+                            form.form__edit-review
+                                .form__edit__group.review
+                                    label.form__edit__label(for='review') Review 
+                                    textarea#review.form__input(type='textarea', rows="4", name='review', required)=`${review.review}`
+                                .form__edit__group
+                                    label.form__edit__label(for='rating') Rating 
+                                    .ratings(name='rating', data-rating=`${review.rating}`, data-id=`${review.id}`)
+                                        span.fa.fa-star-o.inactive
+                                        span.fa.fa-star-o.inactive
+                                        span.fa.fa-star-o.inactive
+                                        span.fa.fa-star-o.inactive
+                                        span.fa.fa-star-o.inactive
+                                .form__edit__group
+                                    .review__card__footer
+                                        button.btn.btn--green.btn--small Edit Review

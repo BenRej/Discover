@@ -1,0 +1,44 @@
+extends base
+
+block content
+    main.main
+        .user-view
+            include _navAccount
+            .user-view__content
+                .user-view__form-container
+                    h2.heading-secondary.ma-bt-md Manage Tours Overview
+                    div(class=`table-box ${scrollStatus}`)
+                        table.tables
+                            thead
+                                tr
+                                    th.sticky-header Tours
+                                    th.sticky-header Name
+                                    th.sticky-header See
+                                    th.sticky-header Edit
+                                    th.sticky-header Delete
+                                tbody
+                                each tour in tours
+                                    tr
+                                        td 
+                                            .table-picture
+                                                img.table-picture--small(src=`/img/tours/${tour.imageCover}`, alt=`${tour.name}`)
+                                        td 
+                                            span=tour.name
+                                        td
+                                            a(href=`/tour/${tour.slug}`)
+                                                svg.card__icon
+                                                    use(xlink:href='/img/icons.svg#icon-eye')
+                                        td
+                                            a(href=`/edit-tour/${tour.slug}`)
+                                                svg.card__icon
+                                                    use(xlink:href='/img/icons.svg#icon-edit')
+                                        td
+                                             svg.card__icon.delete-tour(data-id=`${tour.id}`,data-tourname=`${tour.name}`)
+                                                use(xlink:href='/img/icons.svg#icon-delete')
+
+                    .btn__container--create      
+                        a.btn.btn--green.btn--small#btn__search--tour(href=`/create-tour`) Create tour
+    //- include _popupReviewSee
+                                    
+                                                
+                                        

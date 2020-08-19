@@ -1,0 +1,35 @@
+extends base
+
+block content
+    main.main
+        .user-view
+            include _navAccount
+            .user-view__content
+                .user-view__form-container
+                    h2.heading-secondary.ma-bt-md Your Bookings
+                    div(class=`table-box ${scrollStatus}`)
+                        table.tables
+                            thead
+                                tr
+                                    th.sticky-header Tours
+                                    th.sticky-header Name
+                                    th.sticky-header Purchase
+                                    th.sticky-header Post review
+                                    th.sticky-header Details
+                                tbody
+                                each booking in bookings
+                                    tr
+                                        td 
+                                            .table-picture
+                                                img.table-picture--small(src=`/img/tours/${booking.tour.imageCover}`, alt=`${booking.tour.name}`)
+                                        td 
+                                            span=booking.tour.name
+                                        td
+                                            span=booking.createdAt.toLocaleString('en-us',{weekday: "long", year: "numeric", month: "long", day: "numeric"})
+                                        td
+                                            a(href=`/create-review/${booking.tour.id}`)
+                                                svg.card__icon
+                                                    use(xlink:href='/img/icons.svg#icon-edit')
+                                        td 
+                                            a.btn.btn--green.btn--small(href=`/tour/${booking.tour.slug}`) Details
+

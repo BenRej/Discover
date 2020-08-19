@@ -1,0 +1,48 @@
+extends base
+
+block content
+    main.main
+        .user-view
+            include _navAccount
+            .user-view__content.user-overview
+                .user-view__form-container
+                    h2.heading-secondary.ma-bt-md Manage Users Overview
+                    div(class=`table-box ${scrollStatus}`)
+                        table.tables
+                            thead
+                                tr
+                                    th.sticky-header User
+                                    th.sticky-header Name
+                                    th.sticky-header Role
+                                    th.sticky-header See
+                                    th.sticky-header Edit
+                                    th.sticky-header Delete
+
+                                tbody
+                                each user in users
+                                    tr
+                                        td 
+                                            .table-picture
+                                                img.table-picture--small(src=`/img/users/${user.photo}`, alt=`${user.name}`)
+                                        td 
+                                            span=user.name
+
+                                        td
+                                            span=user.role
+
+                                        td
+                                            a(href=`/user/${user.id}`)
+                                                svg.card__icon
+                                                    use(xlink:href='/img/icons.svg#icon-eye')
+                                        td
+                                            a(href=`/edit-user/${user.id}`)
+                                                svg.card__icon
+                                                    use(xlink:href='/img/icons.svg#icon-edit')
+                                        td
+                                             svg.card__icon.delete-user(data-id=`${user.id}`,data-name=`${user.name}`)
+                                                use(xlink:href='/img/icons.svg#icon-delete')
+
+    //- include _popupReviewSee
+                                    
+                                                
+                                        

@@ -1,0 +1,75 @@
+extends base
+
+block content
+    main.main
+        .filter
+            .filter__destination
+                h2.filter__title Tour Destination
+                .select-box
+                    .options-container
+                        .option
+                                input.radio(type="radio",id=`All`, name="destination")
+                                label(for=`All`)= `All`
+                        each uniqueLocation in uniqueLocations
+                            .option
+                                input.radio(type="radio",id=`${uniqueLocation}`, name="destination")
+                                label(for=`${uniqueLocation}`)= `${uniqueLocation}`
+                    .selected#selected--destination Select Your Destination
+                        svg.option__icon--down
+                            use(xlink:href='/img/icons.svg#icon-chevron-down')
+                    .search-box
+                        input.search(type="text" placeholder="Start Typing...")
+
+            .filter__date
+                h2.destination_title Departure Date
+                .date
+                    input.datepicker(type="text",placeholder=`${currentDate.month}/${currentDate.date}/${currentDate.year}`)
+                    svg.option__icon--date
+                        use(xlink:href='/img/icons.svg#icon-calendar')
+
+            .filter__difficulty
+                h2.filter__title Tour Difficulty
+                .select-box
+                    .options-container
+                        .option
+                                input.radio(type="radio",id=`All`, name="destination")
+                                label(for=`All`)= `All`
+                        each uniqueDifficulty in uniqueDifficulties
+                            .option
+                                input.radio(type="radio",id=`${uniqueDifficulty}`, name="Difficulty")
+                                label(for=`${uniqueDifficulty}`)= `${uniqueDifficulty}`
+                    .selected#selected--difficulty Select Difficulty
+                        svg.option__icon--difficulty
+                            use(xlink:href='/img/icons.svg#icon-trending-up')
+                    .search-box
+                        input.search--difficulty(type="text" placeholder="Start Typing...")
+
+            .filter__price 
+                h2.filter__title Your Budget
+                .select-box
+                    .options-container--range
+                        .option--price__range
+                            .price__range=`From $0 to $${maxToursPrice}`
+                            .price__range--value
+                                .price__range-min=`$0`
+                                .price__range-max=`$${maxToursPrice} and +`
+                            .test
+                                .middle
+                                    .multi-range-slider
+                                        input#input-left(type="range", min=0, max=`${maxToursPrice}` value="0")
+                                        input#input-right(type="range", min=0, max=`${maxToursPrice}` value=`${maxToursPrice}`)
+
+                                        .slider
+                                            .track
+                                            .range
+                                            .thumb.left
+                                            .thumb.right
+                    .selected--price 
+                        p.price Selected your budget
+                        svg.option__icon--price
+                            use(xlink:href='/img/icons.svg#icon-dollar-sign')
+
+            .filter__search 
+                a.btn.btn--green.btn--small#btn__search--tour(href=`#`) Search
+        
+        include _tours

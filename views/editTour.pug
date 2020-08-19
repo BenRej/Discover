@@ -1,0 +1,126 @@
+extends base
+
+block content
+    main.main
+        .user-view
+            include _navAccount
+            .user-view__content
+                .user-view__form-container
+                    h2.heading-secondary.ma-bt-lg=`Edit ${tour.name} `
+                    form.form.form--create-tour
+                        .form__group
+                            label.form__label(for='name') Tour Name
+                            input#name.form__input(type='text', placeholder='min-max 10-40 chars', required, minlength='10',maxlength='40')
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='duration') Tour Duration
+                            input#duration.form__input(type='number', placeholder='min 1 day', required, min='1')
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='max-group-size') Tour Maximum Group Size
+                            input#max-group-size.form__input(type='number', placeholder=`maximum group's persons number`,min=1, required)
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='difficulty') Tour Difficulty
+                            select#difficulty.form__input.difficulty(name='difficulty',required)
+                                option(value="") --Please choose an option--
+                                option(value="easy") Easy
+                                option(value="medium") Medium
+                                option(value="difficult",) Difficult
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='price') Tour Price
+                            input#price.form__input(type='number', placeholder=`$`, required)
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='summary') Tour Summary
+                            textarea#summary.form__input(type='textarea', rows="2",placeholder="Summary of your tour" name='description', required)
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='description') Tour Description
+                            textarea#description.form__input(type='textarea', rows="4",placeholder="Description of your tour" name='description', required)
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='image--cover') Tour Image Cover
+                            .form__input.form--add
+                                .file__upload--label
+                                .tags.single--tag.tags--image-cover
+                            .custom__input--add
+                                input#image--cover.file__upload--input.file(type='file', name='image--cover',accept='image/png, image/jpeg', required)
+                                button.btn.btn--green.btn--add.btn--add-file(type='button') Add file
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='Tour--images') Tour Images
+                            .form__input.form--add
+                                .file__upload--label
+                                .tags.triple--tag.tags--image
+                            .custom__input--add
+                                input#tour--images.file__upload--input.file(type='file', name='tour--images',accept='image/png, image/jpeg', multiple, required)
+                                button.btn.btn--green.btn--add.btn--add-file(type='button') Add file
+                        
+                        .form__group.ma-bt-md
+                            label.form__label(for='start-date') Tour Start Date
+                            input#start-date.datepicker--form(type="text", placeholder=`${currentDate}`)
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='Tour-Start-Location') Tour Start Location
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='start-location-longitude') Start Location Longitude
+                            input#start-location-longitude.form__input(type='number', placeholder='Longitude in DD format', step=0.000001,min=-180, max=180)
+                        .form__group.ma-bt-md
+                            label.form__label(for='start-location-latitude') Start Location Latitude
+                            input#start-location-latitude.form__input(type='number', placeholder='Latitude in DD format', step=0.000001, min=-90, max=90)
+                        .form__group.ma-bt-md
+                            label.form__label(for='start-location-address') Start Location Address
+                            input#start-location-address.form__input(type='text', placeholder='Address')
+                        .form__group.ma-bt-md
+                            label.form__label(for='start-location-town') Start Location Town
+                            input#start-location-town.form__input(type='text', placeholder='Town')
+                        .form__group.ma-bt-md
+                            label.form__label(for='start-location-country') Start Location Country
+                            input#start-location-country.form__input(type='text', placeholder='Country')
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='Tours--Locations') Tour Locations
+                            .form__input.form--add
+                                .file__upload--label
+                                .tags.tags--location
+                                //-     .tag
+                                //-         .tag--description hello guys
+                                //-         svg.icon--close
+                                //-             use(xlink:href="/img/icons.svg#icon-x-circle")
+                        
+                            label.form__label(for='location-longitude') Location Longitude
+                            input#location-longitude.form__input.location-longitude.data(type='number', placeholder='Longitude in DD format',step=0.000001, min=-180, max=180)
+                        
+                            label.form__label(for='location-latitude') Location Latitude
+                            input#location-latitude.form__input.location-latitude.data(type='number', placeholder='Latitude in DD format',step=0.000001,min=-90, max=90 )
+                        
+                            label.form__label(for='location-address') Location Address
+                            input#location-address.form__input.location-address.data(type='text', placeholder='Address')
+                        
+                            label.form__label(for='location-description') Location description
+                            textarea#location-description.form__input.location-description.data(type='textarea', rows="4",placeholder="Description of the location" name='description')
+                        
+                            label.form__label(for='location-country') Location Day Number
+                            input#location-day.form__input.location-day.data(type='number', placeholder='1')
+
+                            button.btn.btn--green.btn--add.btn--add-data(type='button') Add location
+
+                        .form__group.ma-bt-md
+                            label.form__label(for='tour--guides') Tour Guides
+                            .form__input.form--add
+                                .file__upload--label
+                                .tags.tags--guide
+                            
+                            select#tour--guides.form__input.form__select.select(name='tour--guides', disable=true)
+                                option(value="") --Please choose an option--
+                                each guide in guides
+                                    option(value=`${guide.name}`, data-id=`${guide.id}`)=`${guide.name}`
+                            button.btn.btn--green.btn--add.btn--add-select(type='button') Add Guide
+                            
+                            
+                                
+                        .form__group.form__submit
+                            button.btn.btn--green.btn--submit.edit-tour(type='button', data-id=`${tour.id}`) submit

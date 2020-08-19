@@ -1,0 +1,37 @@
+extends base
+include _reviewcard
+
+block content
+    main.main
+        .user-view
+            include _navAccount
+            .user-view__content
+                .user-view__form-container
+                    h2.heading-secondary.ma-bt-md Your Review
+                    
+                    .card
+                        .card__header
+                            .card__picture
+                                .card__picture-overlay &nbsp;
+                                a.review__card--btn-back(href=`/my-reviews`)
+                                    svg.review__card__icon
+                                        use(xlink:href='/img/icons.svg#icon-arrow-left')
+                                    p.review__card--btn-back-text Go back 
+                                img.card__picture-img(src=`/img/tours/${review.tour.imageCover}`, alt=`${review.tour.name}`)
+                            h3.heading-tertirary
+                                span= review.tour.name
+
+                        .review__content
+                            .review__avatar
+                                img.review__avatar-img(src=`/img/users/${review.user.photo}`, alt=`${review.user.name}`)
+                            p.review__user=review.user.name
+
+                            p.review__user__content=review.review
+                        
+                            .reviews__user__rating
+                                each star in [1, 2, 3, 4, 5]
+                                    svg.reviews__star(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
+                                        use(xlink:href='/img/icons.svg#icon-star')
+
+                        .review__card__footer
+                            a.btn.btn--green.btn--small(href=`/edit-review/${review.id}`) Edit

@@ -1,0 +1,47 @@
+extends base
+
+block content
+    main.main
+        .user-view
+            include _navAccount
+            .user-view__content
+                .user-view__form-container
+                    h2.heading-secondary.ma-bt-md Your Reviews
+                    div(class=`table-box ${scrollStatus}`)
+                        table.tables
+                            thead
+                                tr
+                                    th.sticky-header Tours
+                                    th.sticky-header Name
+                                    th.sticky-header Rating
+                                    th.sticky-header See
+                                    th.sticky-header Edit
+                                    th.sticky-header Delete
+                                tbody
+                                each review in reviews
+                                    tr
+                                        td 
+                                            .table-picture
+                                                img.table-picture--small(src=`/img/tours/${review.tour.imageCover}`, alt=`${review.tour.name}`)
+                                        td 
+                                            span=review.tour.name
+                                        td
+                                            each star in [1, 2, 3, 4, 5]
+                                                svg.reviews__star(class=`reviews__star--${review.rating >= star ? 'active' : 'inactive'}`)
+                                                    use(xlink:href='/img/icons.svg#icon-star')
+                                        td
+                                            a(href=`/my-reviews/${review.id}`)
+                                                svg.card__icon
+                                                    use(xlink:href='/img/icons.svg#icon-eye')
+                                        td
+                                            a(href=`/edit-review/${review.id}`)
+                                                svg.card__icon
+                                                    use(xlink:href='/img/icons.svg#icon-edit')
+                                        td
+                                             svg.card__icon.delete-review(data-id=`${review.id}`,data-tourname=`${review.tour.name}`)
+                                                use(xlink:href='/img/icons.svg#icon-delete')
+
+    //- include _popupReviewSee
+                                    
+                                                
+                                        
