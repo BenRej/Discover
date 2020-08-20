@@ -39,6 +39,8 @@ as admin to:\
 -Read/Delete booking (work in progress)
 
 other App features:\
+-Authentication with JWT: user sign up, log in, password reset, secure cookies\
+-Authorization (user roles)
 -Credit card payments with Stripe\
 -Resizing images with Sharp\
 -Upload images with Multer\
