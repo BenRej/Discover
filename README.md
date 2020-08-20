@@ -19,7 +19,7 @@ Start Project:
 -npm install\
 -npm start
 
-in case you want to modify some JS files:
+in case you want to modify some JS files:\
 -npm run watch:js
 
 Features:
