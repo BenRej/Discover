@@ -32,13 +32,13 @@ In this app you be able as user to:\
 -Update your user information : name / email / password\
 -Read your bills ( work in progress)
 
-as admin to:
+as admin to:\
 -Read/Update/Delete users (except changing their password)\
 -Create/Read/Update/Delete reviews\
 -Create/Read/Update/Delete tours\
 -Read/Delete booking (work in progress)
 
-other App features:
+other App features:\
 -Credit card payments with Stripe\
 -Resizing images with Sharp\
 -Upload images with Multer\
