@@ -49,7 +49,7 @@ other App features:\
 -Data sanatization against NoSQL injection with express-mongo-sanatize\
 -Data sanatization against XSS with xss-clean
 
-For any question or to get an admin account please feel free to contact me.
+For any question or to get an admin account please feel free to contact me.\
 Contact: benoitrejou@gmail.com
 
 important note
