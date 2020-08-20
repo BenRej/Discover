@@ -4,15 +4,15 @@ Welcome to Discover, the tour booking application on the theme of nature.
 
 Tech:
 ------
-NodeJs
-MongoDB
-Mongoose
-Express
-PUG
-CSS
-ESlint
-Prettier
-MVC architecture
+-NodeJs\
+-MongoDB\
+-Mongoose\
+-Express\
+-PUG
+-CSS
+-ESlint
+-Prettier
+-MVC architecture
 
 Start Project:
 --------------
