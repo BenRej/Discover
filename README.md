@@ -12,12 +12,12 @@ Tech:
 -CSS\
 -ESlint\
 -Prettier\
--MVC architecture\
+-MVC architecture
 
 Start Project:
 --------------
 -npm install\
--npm start\
+-npm start
 
 in case you want to modify some JS files:
 -npm run watch:js
@@ -30,13 +30,13 @@ In this app you be able as user to:
 -Book a tour (use 4242 4242 4242 4242 as credit card number, it's a dev test version)\
 -Create/Read/Update/Delete a review on your booked tours\
 -Update your user information : name / email / password\
--Read your bills ( work in progress)\
+-Read your bills ( work in progress)
 
 as admin to:
 -Read/Update/Delete users (except changing their password)\
 -Create/Read/Update/Delete reviews\
 -Create/Read/Update/Delete tours\
--Read/Delete booking (work in progress)\
+-Read/Delete booking (work in progress)
 
 other App features:
 -Credit card payments with Stripe\
@@ -47,7 +47,7 @@ other App features:
 -Limiting requests with express-rate-limit\
 -Security http headers with Helmet\
 -Data sanatization against NoSQL injection with express-mongo-sanatize\
--Data sanatization against XSS with xss-clean\
+-Data sanatization against XSS with xss-clean
 
 For any question or to get an admin account please feel free to contact me.
 Contact: benoitrejou@gmail.com
