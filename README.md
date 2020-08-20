@@ -24,7 +24,7 @@ in case you want to modify some JS files:
 
 Features:
 ---------
-In this app you be able as user to:
+In this app you be able as user to:\
 -Register/Login/Logout\
 -Search for a tour with filtering system ( only 10 tour right now, more to come soon to make the filtering system more relevant!)\
 -Book a tour (use 4242 4242 4242 4242 as credit card number, it's a dev test version)\
