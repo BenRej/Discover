@@ -52,7 +52,8 @@ other App features:\
 For any question or to get an admin account please feel free to contact me.\
 Contact: benoitrejou@gmail.com
 
-important note
+important note:
+----------------
 this is a dev project, that's why you find in a config.env file.
 In order to make the email system work with sendgrid, please enter your own api key and password in this config file ( to prevent spam )
 In real life, this file wouldn't be in repo, instead you would find a config.env.sample file, for security reasons.
